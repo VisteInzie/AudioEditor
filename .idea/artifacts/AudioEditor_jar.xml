@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="AudioEditor:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/AudioEditor_jar</output-path>
+    <root id="archive" name="AudioEditor.jar">
+      <element id="module-output" name="AudioEditor" />
+    </root>
+  </artifact>
+</component>
