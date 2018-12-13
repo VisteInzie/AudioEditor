@@ -58,8 +58,8 @@ public class Main {
         int totalFramesRead = 0;
         ArrayList<byte[]> arrayList = new ArrayList<>();
         // Set an arbitrary buffer size of 1024 frames.
-        int numBytesRead = 0;
-        int numFramesRead = 0;
+        int numBytesRead;
+        int numFramesRead;
 
         // Try to read numBytes bytes from the file.
         int numBytes = 1024 * bytesPerFrame;
@@ -69,8 +69,7 @@ public class Main {
             numFramesRead = numBytesRead / bytesPerFrame;
             totalFramesRead += numFramesRead;
 
-            // Here, do something useful with the audio data that's
-            // now in the audioBytes array...
+            // Clone bytes array then add to ArrayList
             byte[] audioBytesClone = audioBytes.clone();
             arrayList.add(audioBytesClone);
         }
@@ -88,7 +87,7 @@ public class Main {
         clip.start();
     }
 
-    public static String humanReadableByteCount(long bytes, boolean si) {
+    private static String humanReadableByteCount(long bytes, boolean si) {
         int unit = si ? 1000 : 1024;
         if (bytes < unit) return bytes + " B";
         int exp = (int) (Math.log(bytes) / Math.log(unit));
